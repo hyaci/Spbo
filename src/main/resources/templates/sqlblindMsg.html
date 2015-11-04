@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>警告页面</title>
+<style type="text/css">
+body, html { font-size: 14px; background: #FFF; color: #000; font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif; }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin: 0; padding: 0; }
+table { border-collapse: collapse; }
+button { cursor: pointer; }
+fieldset, img { border: none; }
+em, th { font-style: normal; font-weight: normal; }
+li { list-style: none; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif; }
+h1 { font-size: 18px; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4 { font-size: 12px; }
+a { text-decoration: none; color: #000 }
+a:hover { text-decoration: underline; }
+.red a, .red { color: #F10 }
+.red a:hover { color: #F10 }
+.blue, .blue a { color: #16C }
+a.blue:hover { color: #16C }
+.gray, .gray a { color: #999 }
+.green, .green a { color: #066601 }
+.orange, .orange a { color: #F60 }
+.fl { float: left; }
+.fr { float: right }
+.f_bold { font-weight: bold }
+.disNo { display: none }
+.clearfix:after { content: "\0020"; display: block; height: 0; clear: both }
+.clearfix { _zoom: 1 }
+*+html .clearfix { overflow: hidden }
+.h_nav, .h_search { width: 960px; margin: 0 auto; clear: both }
+/*404*/
+.error_box{ width:400px; margin:200px auto 0 auto; padding-left:300px; box-sizing:content-box; height:300px;}
+.error_box h1{ font-size:26px; color:#F00; padding-top:50px; line-height:30px; font-weight:bold}
+.error_box h1 span{ font-size:16px; color:#333}
+.error_box p{ line-height:30px; font-size:14px;}
+.error_box p a{ color:#06C;}
+.error_404{ background:url(ui/sysresource/img/jinggao.png) no-repeat left center;}
+</style>
+</head>
+
+<body>
+<div class="error_box error_404">
+    	<h1>警告：非法请求；<span>请求不符合程序要求。</span></h1>
+        <p>您所请求的URL地址包含特殊字符，这些特殊字符不符合程序要求，已屏蔽。请不要私自构造非法请求路径，请合法使用。</p>
+        <p>您可以点击以下链接继续：</p>
+        <p><a th:href="@{/index.html}">返回首页</a></p>
+        <!--  <p><a  href="javascript:history.go(-1)">返回上一级</a></p>-->
+    </div>
+</body>
+</html>
