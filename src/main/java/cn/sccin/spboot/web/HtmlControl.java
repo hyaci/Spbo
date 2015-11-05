@@ -22,7 +22,7 @@ public class HtmlControl {
         return "home";
     }
 
-    @RequestMapping("/pub/index.html")
+    @RequestMapping(value={"/pub/","/pub/index.html"})
     public String index(HttpServletResponse response,HttpServletRequest request, Model model) {
         return "index";
     }

@@ -1,33 +1,274 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
-          href="../../css/bootstrap.min.css" />
+	<meta charset="utf-8" />
+	<title></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link type="text/css" th:href="@{/ui/register/css/register.css}" rel="stylesheet" />
+	<script type="text/javascript" th:src="@{/ui/register/js/jquery-1.10.2.js}"></script>
+	<script type="text/javascript" th:src="@{/ui/register/js/general.js}"></script>
 </head>
-<body onload="document.f.username.focus();">
-<div class="container">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <a class="brand" href="http://www.thymeleaf.org"> Thymeleaf -
-                Plain </a>
-            <ul class="nav">
-                <li><a th:href="@{/login}" href="home.html"> Login </a></li>
-            </ul>
-        </div>
+<body>
+<div class="wrap-reg" id="home">
+
+  <div class="header">
+    <!--<div class="header_box"><a id="logo" href="index.html" title="阳光建设网"></a> </div>-->
+  </div>
+
+  <div class="banner_reg">
+    <div class="reg_head">
+      <h2 class="reg_head_tit"><i class="zc"></i>新用户注册</h2>
+      <a class="reg_id" th:href="@{/login.html}">已有账号&nbsp;&gt;</a>
     </div>
-    <div class="content">
-        <p th:if="${error}" class="alert alert-error">There was an error, please try again</p>
-        <h2>Register with Username and Password</h2>
-        <form name="form" th:action="@{/pub/register}" action="/login" method="POST">
-            <fieldset>
-                <input type="text" name="username" value="" placeholder="Username" />
-                <input type="password" name="password" placeholder="Password" />
-            </fieldset>
-            <input type="submit" id="login" value="Register"
-                   class="btn btn-primary" />
-        </form>
-    </div>
+  </div>
 </div>
+<div class="pageBody">
+  <div class="reg_box">
+    <form name="reg_form" id="reg_form" method="post" onsubmit="return false;">
+    <div class="form_user">
+      <div class="reg_process">
+        <ol class="reg-step clearfix ">
+          <li class="reg-step-1 reg-step-done">
+            <div class="reg-step-line">-</div>
+            <div class="reg-step-icon"> <i class="reg-step-number">1</i> <span class="reg-step-text">填写基本信息</span> </div>
+          </li>
+          <li class="reg-step-2">
+            <div class="reg-step-line">-</div>
+            <div class="reg-step-icon"> <i class="reg-step-number">2</i> <span class="reg-step-text">注册成功</span> </div>
+          </li>
+        </ol>
+      </div>
+      <div class="form_group">
+        <label class="label_name">用户名：</label>
+        <input type="text" class="form_control"  name="username" id="username"/>
+        <p class="form_msg_tips" id="from_Verification_username">长度为2~16个字符，只能由中文、字母、数字和下划线组成。</p>
+        <p class="form_msg_tips" style=" display: none;" id="from_Verification_username2">可以注册</p>
+        <p class="form_msg_tips" style=" display: none; color: red;" id="from_Verification_username3">该用户名已被使用</p>
+      </div>
+       <div class="form_group">
+        <label class="label_name">昵&nbsp;&nbsp;&nbsp;称：</label>
+        <input type="text" class="form_control"  name="nickname" id="nick_name"/>
+        <p class="form_msg_tips" id="from_nick_name1">长度为2~16个字符，只能由中文、字母、数字和下划线组成。</p>
+        <p class="form_msg_tips" style=" display: none;" id="from_nick_name2">可用</p>
+         <p class="form_msg_tips" style=" display: none; color: red;" id="from_nick_name3">该登陆名已被使用</p>
+      </div>
+      <div class="form_group">
+        <label class="label_name">登陆密码：</label>
+        <input type="password" class="form_control" name="password" id="password"/>
+        <p class="form_msg_tips" id="from_Verification_password"> 长度为6-20个字符,不允许有空格请使用字母加数字或下划线的组合密码。</p>
+      </div>
+      <div class="form_group">
+        <label class="label_name">确认密码：</label>
+        <input type="password" class="form_control" name="passwordconfirmation" id="repassword" />
+        <p style="display: none;" class="form_msg_tips" id="from_Verification_repassword"> 请确认两次输入的密码相同。</p>
+      </div>
+      <div class="form_group">
+        <label class="label_name">手机号：</label>
+        <input type="text" class="form_control" name="mobile" id="mobile"/>
+        <p class="form_msg_tips" id="getidentifying">请输入11位的手机号码</p>
+        <button style="display: none;" type="text" class="btn-submit btn-submit-m" id="getidentifying2">获取验证码</button>
+      </div>
+      <div class="form_group">
+        <label class="label_name" >电子邮箱：</label>
+        <input type="text" class="form_control" name="email" id="email"/>
+        <p class="form_msg_tips" style="display: none; color: red;" id="from_Verification_email"> 请输入正确的邮箱。</p>
+      </div>
+      <div class=" form_group margin-210">
+        <div class="agreement"><a href="#" target="_blank">点击查阅《中国易建网服务协议》</a></div>
+        <button type="text" class="btn-submit" onClick="_submit_register();">同意条款并注册</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+<div class="foot">
+  <div class="foot_cont">
+    <div class="copyright">
+		<p>Copyright©2014 All Rights Reserved <br />
+			技术支持：<a href="http://www.sccin.com">四川建设网有限责任公司</a>。</p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  //响应注册事件
+  function _submit_register(){
+    var username = $("#username").val();
+    var pwd = $("#password").val();
+    var repwd = $("#repassword").val();
+    var mobile = $("#mobile").val();
+    var email = $("#email").val();
+    var nickname = $("#nick_name").val();
+    if (!nickname.match( /^[\u4E00-\u9FA5a-zA-Z0-9_]{2,16}$/)){
+      $("#from_nick_name1").css({"color":"red"});
+      return;
+    }
+    if(!username.match( /^[\u4E00-\u9FA5a-zA-Z0-9_]{2,16}$/)){
+      $("#from_Verification_username").css({"color":"red"});
+      return;
+    }
+    if (!pwd.match(/^[^\s]{6,20}$/)){
+      $("#from_Verification_password").css({"color":"red"});
+      return;
+    }
+    if(pwd != repwd){return;}
+    if (!mobile.match(/^[1][3456789]\d{9}$/)){
+      $("#getidentifying").css({"color":"red"});
+      return;
+    }
+    if (!email.match(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/)){
+      $("#from_Verification_email").show();
+      return;
+    }
+    $.ajax({
+      type: "post",
+      url: "ajaxcheckuser.html",
+      data: $("#username").serialize(),
+      success: function(data) {
+        $("#from_Verification_username").hide();
+        if(data==1){
+          $("#from_Verification_username2").hide();
+          $("#from_Verification_username3").show();
+        }else{
+          $("#from_Verification_username3").hide();
+          $("#from_Verification_username2").show();
+          $.ajax({
+            type: "post",
+            url: "userRegisterResult.html",
+            data: {username:username,password:pwd,mobile:mobile,email:email,nickname:nickname},
+            success: function(data) {
+              if(data==1){
+                window.location.href ="index.html";
+              }
+            }
+          });
+        }
+
+      }
+    });
+
+  }
+
+  //界面响应回车事件
+  document.onkeydown = function(e) {
+    var theEvent = e || window.event;
+    var code = theEvent.keyCode || theEvent.which || theEvent.charCode;//获取键盘code值
+    if (code == 13) {
+      _submit_register();
+    }
+  }
+
+  //验证输入内容
+  $(function(){
+    //验证昵称名
+    $("#nick_name").blur( function () {
+      var nickname = $("#nick_name").val();
+      if (!nickname.match( /^[\u4E00-\u9FA5a-zA-Z0-9_]{2,16}$/)){//验证用户名的正则表达式3到16位
+        $("#from_nick_name1").show();
+        $("#from_nick_name2").hide();
+        $("#from_nick_name3").hide();
+        $("#from_nick_name1").css({"color":"red"});
+      }else{
+        $.ajax({
+          type: "post",
+          url: "ajaxchecknickname.html",
+          data: $("#nick_name").serialize(),
+          success: function(data) {
+            $("#from_nick_name1").hide();
+            if(data==1){
+              $("#from_nick_name3").show();//可用
+              $("#from_nick_name2").hide();//该登陆名已被使用
+            }else{
+              $("#from_nick_name3").hide();
+              $("#from_nick_name2").show();
+            }
+
+          }
+        });
+      }
+
+    });
+
+    //验证用户名  用户名只能由中文、字母、数字和下划线组成
+    $("#username").blur( function () {
+      var username = $("#username").val();
+      if (!username.match( /^[\u4E00-\u9FA5a-zA-Z0-9_]{2,16}$/)){//验证用户名的正则表达式3到16位
+        $("#from_Verification_username").show();
+        $("#from_Verification_username2").hide();
+        $("#from_Verification_username3").hide();
+        $("#from_Verification_username").css({"color":"red"});
+      }else{
+        //验证用户是否存在
+        $.ajax({
+          type: "post",
+          url: "ajaxcheckuser.html",
+          data: $("#username").serialize(),
+          success: function(data) {
+            $("#from_Verification_username").hide();
+            if(data==1){
+              $("#from_Verification_username2").hide();//可以注册
+              $("#from_Verification_username3").show();//该用户名已被使用
+            }else{
+              $("#from_Verification_username3").hide();
+              $("#from_Verification_username2").show();
+            }
+
+          }
+        });
+      }
+    } );
+    //验证密码 6-20位不含空格的密码
+    $("#password").blur( function () {
+      var pwd=$("#password").val();
+      if (!pwd.match(/^[^\s]{6,20}$/)){//验证密码的正则表达式
+        $("#from_Verification_password").css({"color":"red"});
+      }else{
+        $("#from_Verification_password").css({"color":"#666"});
+      }
+    } );
+    //验证密码 是否相等
+    $("#repassword").blur( function () {
+      var pwd=$("#password").val();
+      var repwd=$("#repassword").val();
+      if(pwd == repwd){
+        $("#from_Verification_repassword").css({"color":"#666"}).hide();
+      }else{
+        $("#from_Verification_repassword").css({"color":"red"}).show();
+      }
+    } );
+    $("#password").blur( function () {
+      var pwd=$("#password").val();
+      var repwd=$("#repassword").val();
+      if(pwd == repwd){
+        $("#from_Verification_repassword").css({"color":"#666"}).hide();
+      }else{
+        $("#from_Verification_repassword").css({"color":"red"}).show();
+      }
+    } );
+    //验证手机号码
+    $("#mobile").blur( function () {
+      var mobile=$("#mobile").val();
+      if (!mobile.match(/^[1][3456789]\d{9}$/)){ //验证邮箱的正则表达式
+        $("#getidentifying").show();
+        //$("#getidentifying2").hide();
+        $("#getidentifying").css({"color":"red"});
+      }else{
+        $("#getidentifying").hide();
+        //$("#getidentifying2").show();
+      }
+    } );
+    //验证邮箱
+    $("#email").blur( function () {
+      var email=$("#email").val();
+      if (!email.match(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/)){ //验证邮箱的正则表达式
+        $("#from_Verification_email").show();
+      }else{
+        $("#from_Verification_email").hide();
+      }
+    } );
+  })
+</script>
 </body>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body th:fragment="body">
+    <!-- 最顶层begin-->
+    <div class="top_nav colorbg">
+        <div class="mainwd">
+            <div class="lt">
+                <div> <a target="_blank" th:href="@{/login.html}" mini-login="login"><span class="login_ico denglu_ico"></span>登录</a> | <a target="_blank" th:href="@{/pub/register.html}">注册</a> </div>
+            </div>
+            <div class="rt">
+                <font class="tpApp"><a href="#" class="appLink"><span class="phoneIcon"></span>手机版</a></font>|
+                <a href="#"><span class="login_ico shipCar_ico"></span>购物车</a>|
+                <font><span class="ico_list in_t_tel_ico"></span>装修热线：<b class="fontcl2">028-85181818</b></font>
+            </div>
+        </div>
+    </div>
+    <!-- 最顶层end-->
+    <!-- 搜索层begin-->
+    <div class="main_header">
+        <div class="mainwd top_bottom">
+            <div class="logo lt"> <a href=""><img src="../../ui/themes/default/static/images/logo.png" class="logo lt" /></a> </div>
+            <div class="search_box lt">
+                <form method="post" th:action="@{/}" action="#" id="top-search">
+                    <div class="search_cont">
+                        <a href="#" id="top_select" class="lt">技工<span class="search_ico index_ico"></span></a>
+                        <div class="search_cont_list none">
+                            <a href="#" rel="mall/product/">辅材</a>
+                            <a href="#" rel="designer/items">设计师</a>
+                            <a href="#" rel="mechanic/items">技工</a>
+                            <a href="#" rel="case/album">案例</a>
+                            <a href="#" rel="home/items">小区</a>
+                            <a href="#" rel="home/items">工地</a>
+                        </div>
+                    </div>
+                    <input type="text" name="kw" class="text lt" placeholder="请输入你要搜索的关键字" value="" />
+                    <input type="submit" class="btn rt" value="搜索" />
+                </form>
+            </div>
+            <div class="site_commitment rt">
+                <ul>
+                    <li><a href="#"><span><img src="../../ui/themes/fangTo8to/static/images/top_bao.jpg" /></span></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 搜索层end-->
+
+        <!-- 导航栏begin-->
+        <div class="header_bottom">
+            <div class="mainwd hoverno">
+                <ul>
+                    <li><a href="#" class="current" >首页</a> </li>
+                    <li> <a href="#" >辅材商城</a> </li>
+                    <li><a  href="#" >我要装修</a> </li>
+                    <li class="has_son"> <a  href="#">我要找<em class="index_ico menu_ico"></em></a>
+                        <ul class="main_nav_son none">
+                            <li><a href="#" >找设计师</a></li>
+                            <li><a href="#" >找工长</a></li>
+                            <li><a href="#" >找工人</a></li>
+                            <li><a href="#" >找装修监理</a> </li>
+                        </ul>
+                    </li>
+                    <!--<li class="has_son"> <a  href="装天下-小区楼盘.html">我搜我家<em class="index_ico menu_ico"></em></a>
+                        <ul class="main_nav_son none">
+                            <li><a href="装天下-小区楼盘.html">小区楼盘</a></li>
+                            <li><a href="装天下-小区楼盘.html">团装小区</a></li>
+                        </ul>
+                    </li>-->
+                    <li><a  href="#" rel="sss">装修案例</a></li>
+                    <li class="has_son"> <a  href="#">学装修<em class="index_ico menu_ico"></em></a>
+                        <ul class="main_nav_son none">
+                            <li><a href="#" >装修日记</a></li>
+                            <li><a href="#" >知识问答</a></li>
+                        </ul>
+                    </li>
+                    <li><a  href="#" >优惠活动<em class="index_ico menu_ico"></em></a></li>
+                </ul>
+                <div class="cl"></div>
+            </div>
+        </div>
+        <!-- 导航栏end-->
+    </div>
+    <script type="text/javascript">
+        /*搜索事件响应 begin*/
+        (function(K, $){
+            $(".search_box .search_cont").mouseover(function(){
+                var o = $("#top_select").offset();
+                $(this).find(".search_cont_list").css({left:o.left-2,top:o.top+36}).show();
+            }).mouseleave(function(){
+                $(this).find(".search_cont_list").hide();
+            });
+            $(".search_cont_list a").click(function(){
+                $(".search_box .search_cont #top_select").html($(this).text()+'<span class="search_ico index_ico"></span>');
+                /*$(".search_box form").attr('action',$(this).attr('rel'));*/
+                $(".search_box .search_cont_list").hide();
+            });
+            //绿色头部搜索框
+            $(".search_cont").mouseover(function(){
+                $(this).find(".search_cont_list").show();
+            }).mouseleave(function(){
+                $(this).find(".search_cont_list").hide();
+            });
+            /*搜索事件响应 end*/
+
+            /*绿色导航begin*/
+            $(".header_bottom ul li").mouseover(function(){
+                $(this).addClass('current');
+                $(this).find(".main_nav_son").show();
+                $(this).find("em.menu_ico").addClass('menu_ico_over');
+            }).mouseleave(function(){
+                $(this).removeClass('current');
+                $(this).find(".main_nav_son").hide();
+                $(this).find("em.menu_ico").removeClass('menu_ico_over');
+            });
+            /*绿色导航end*/
+        })(window.KT, window.jQuery);
+    </script>
+</body>
+</html>

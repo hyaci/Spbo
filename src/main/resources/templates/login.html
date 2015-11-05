@@ -1,35 +1,119 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
-          href="../../css/bootstrap.min.css" />
+<meta charset="utf-8" />
+<title></title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link type="text/css" th:href="@{/ui/login/css/login.css}" rel="stylesheet" />
+<script type="text/javascript" th:src="@{/ui/login/js/jquery-1.9.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/ui/login/js/general.js}"></script>
+<script type="text/javascript" th:src="@{/ui/login/js/jquery.SuperSlide.2.1.js}"></script>
 </head>
-<body onload="document.f.username.focus();">
-<div class="container">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <a class="brand" href="http://www.thymeleaf.org"> Thymeleaf -
-                Plain </a>
-            <ul class="nav">
-                <li><a th:href="@{/pub/register}" href="home.html"> 注册 </a></li>
-                <li><a th:href="@{/}" href="home.html"> Home </a></li>
+
+<body>
+<div class="wrap" id="home">
+  <div class="top">
+    <div class="header">
+      <div id="logo"> <!--<a href="#" class="sys-logo"></a>--> </div>
+      <div class="main_nav">
+        <ul>
+          <li class="navItem"><!--<a href="#">四川建设网</a>--></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="focusBox">
+        <ul class="pic">
+          <li class="s1">
+            <div class="img_box"><img th:src="@{/ui/login/images/pic_1.jpg}"/></div>
+          </li>
+          <li class="s2">
+            <div class="img_box"><img th:src="@{/ui/login/images/pic_2.jpg}"/></div>
+          </li>
+        </ul>
+        <a class="prev" href="javascript:void(0)"></a> <a class="next" href="javascript:void(0)"></a>
+        <ul class="hd">
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="login_box">
+        <div class="login_panel">
+          <h1>用户登录</h1>
+          <form method="post" id="login">
+          	<!--/*--><div class="error_msg">请输入用户名</div><!--*/-->
+            <ul>
+              <!--/*-->
+              <li>
+                <select>
+                  <option selected>请选择数字证书</option>
+                  <option>证书</option>
+                </select>
+              </li>
+              <!--*/-->
+              <li>
+                <label><span>输入用户名</span>
+                  <input class="input_text" type="text" name="username"/>
+                </label>
+              </li>
+              <li>
+                <label><span>输入密码</span>
+                  <input class="input_text" type="password" name="password"/>
+                  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                </label>
+              </li>
+              <li><button type="submit" class="login_btn">登录</button></li>
+              <li>
+                <p th:if="${param.error}" class="alert alert-error">
+                  <label style="color: red">输入用户名与密码有误，请再试一次</label></p>
+              </li>
             </ul>
+          </form>
+          <div class="link_reg">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a th:href="@{/pub/register.html}">还没有帐号？立即注册</a>
+          </div>
         </div>
+        <div class="cloud"></div>
+      </div>
     </div>
-    <div class="content">
-        <p th:if="${param.logout}" class="alert">You have been logged out</p>
-        <p th:if="${param.error}" class="alert alert-error">There was an error, please try again</p>
-        <h2>Login with Username and Password</h2>
-        <form name="form" th:action="@{/login}" action="/login" method="POST">
-            <fieldset>
-                <input type="text" name="username" value="" placeholder="Username" />
-                <input type="password" name="password" placeholder="Password" />
-            </fieldset>
-            <input type="submit" id="login" value="Login"
-                   class="btn btn-primary" />
-        </form>
+  </div>
+  <div class="pageBody">
+    <div class="opr_way clearfix">
+      <ul>
+        <li><a href="#">
+          <h2>系统帮助</h2>
+          <p>支付平台各系统帮助文档，其中包括对系统各交易流程</p>
+          </a></li>
+        <li class="i_detect"><a href="#">
+          <h2>系统环境检测</h2>
+          <p>对支付平台运行的环境进行检测，以确保系统能正常运行。</p>
+          </a></li>
+        <li class="i_uplog"><a href="#">
+          <h2>升级日志</h2>
+          <p>支付平台各系统帮助文档，其中包括对系统各交易流程</p>
+          </a></li>
+      </ul>
     </div>
+  </div>
 </div>
+<div class="foot">
+  <div class="foot_cont">
+    <div class="copyright">
+      <p>Copyright©2014 All Rights Reserved <br />
+        技术支持：<a href="http://www.sccin.com">四川建设网有限责任公司</a>。</p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+		/*鼠标移过，左右按钮显示*/
+		jQuery(".focusBox").hover(function(){ jQuery(this).find(".prev,.next").stop(true,true).fadeTo("show",0.2) },function(){ jQuery(this).find(".prev,.next").fadeOut() });
+		/*SuperSlide图片切换*/
+		jQuery(".focusBox").slide({ mainCell:".pic",effect:"fold", autoPlay:true,interTime:5000, delayTime:600, trigger:"click"});
+	</script>
 </body>
 </html>

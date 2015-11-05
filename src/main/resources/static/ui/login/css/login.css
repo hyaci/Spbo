@@ -1,0 +1,104 @@
+@charset "utf-8";
+body, html { font-size: 14px; background: #f4f4f4; color: #000; font-family: "Microsoft YaHei", '微软雅黑', Arial, Helvetica, sans-serif; }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin: 0; padding: 0; }
+table { border-collapse: collapse; }
+button { cursor: pointer; }
+fieldset, img { border: none; }
+em, th { font-style: normal; font-weight: normal; }
+li { list-style: none; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+h1 { font-size: 18px; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4 { font-size: 12px; }
+a { text-decoration: none; color: #000 }
+a:hover { text-decoration: underline; }
+.red a, .red { color: #F10 }
+.red a:hover { color: #F10 }
+.blue, .blue a { color: #16C }
+a.blue:hover { color: #16C }
+.gray, .gray a { color: #999 }
+.green, .green a { color: #066601 }
+.orange, .orange a { color: #F60 }
+.fl { float: left; }
+.fr { float: right }
+.f_bold { font-weight: bold }
+.disNo { display: none }
+.clearfix:after { content: "\0020"; display: block; height: 0; clear: both }
+.clearfix { _zoom: 1 }
+*+html .clearfix { overflow: hidden }
+.h_nav, .h_search { width: 960px; margin: 0 auto; clear: both }
+/*header*/
+.top { height: 500px; position: relative; z-index: 15; background-color: #1961a5; box-shadow: 0 0 6px #DDD }
+.header { height: 50px; width: 1000px; margin-left: -500px; left: 50%; position: absolute; top: 0; z-index: 3 }
+.header #logo { width: 700px; height: 40px; font-weight: bold; font-family: "Microsoft Yahei", "微软雅黑", "黑体"; font-size: 28px; line-height: 40px; float: left; padding-top: 10px; }
+.header #logo a { color: #FFF; text-shadow: 1px 1px 2px #666 }
+.sys-logo{ background:url(../images/logo.png); display:inline-block; height:40px; width:102px;}
+.main_nav { float: right; }
+.main_nav li { float: left; }
+.main_nav li a { display: inline-block; font-size: 14px; margin: 0 5px; height: 40px; color: #FFF; line-height: 40px; }
+.main_nav li a:hover, .main_nav li.active a { border-bottom: 1px solid #FFF; text-decoration: none; color: #FFF }
+/*登录内容区*/
+.container { height: 500px; position: relative; overflow:hidden }
+.focusBox { position: absolute; height: 500px; overflow: hidden; width: 100%; top: 0; left: 0 }
+.focusBox .pic { position: relative; z-index: 0; }
+.focusBox .pic li { position: relative; width: 100%; }
+.focusBox .pic li.s1 { background-color: #1961a5; }
+.focusBox .pic li.s2 { background-color: #1b7b14; }
+.focusBox .pic li.s3 { background-color: #630; }
+.focusBox .pic li.s4 { background-color: #330; }
+.focusBox .pic li { text-align: center }
+.focusBox .pic li .img_box { width: 1000px; margin: 0 auto; position: relative; text-align: center }
+.focusBox .pic li .pic_info { position: absolute; z-index: 20; height: 80px; bottom: -45px; left: 0; width: 100%; color: #FFF; text-align: left; background: rgba(0,0,0,0.4); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000, endColorstr=#66000000);
+zoom: 1; }
+.focusBox .pic li .pic_info h2 { padding: 0 20px 0 70px; font-size: 18px; height: 30px; line-height: 30px; }
+.focusBox .pic li .pic_info p { padding: 0 20px 0 70px; line-height: 22px; height: 44px; }
+:root .focusBox .pic li .pic_info { filter: none\9; }/*for IE9*/
+.focusBox .pic img { display: block; height: 500px; text-align:center}
+.focusBox .num { position: absolute; font-family: Arial, "微软雅黑"; z-index: 23; bottom: 47px; left: 20px; font-size: 18px; color: #FFF; height: 30px; width: 20px; }
+.focusBox .hd { width: 100%; position: absolute; bottom: 10px; text-align: center; font-size: 0; z-index: 99; }
+.focusBox .hd li { margin: 0 3px; background: url(../images/dot.png) no-repeat 0 -16px; height: 16px; overflow: hidden; width: 16px; cursor: pointer; display: inline-block; *display:inline;
+zoom: 1; _background: url(../images/dot8.png) no-repeat 0 -16px; }
+.focusBox .hd .on { background-position: 0 0; }
+.focusBox .prev, .focusBox .next { width: 60px; height: 90px; margin: -60px 0 0; display: none; background: url(../images/ad_ctr.png) no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; filter: alpha(opacity=20); opacity: 0.2; }
+.focusBox .prev { left: 0; }
+.focusBox .next { background-position: 0 -90px; right: 0; }
+.focusBox .prev:hover, .focusBox .next:hover { filter: alpha(opacity=50) !important; opacity: 0.5 !important; }
+/*主要内容区*/
+.pageBody { width: 1000px; margin: 0 auto; }
+.login_box { width: 1000px; height: 500px; margin: 0 auto; position: relative; z-index: 10 }
+.login_panel { background: none repeat scroll 0 0 #FFFFFF; box-shadow: 0 0 2px rgba(0, 0, 0, 0.13), 0 1px 5px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(255, 255, 255, 0.69) inset; height: 336px; position: absolute; right: 0; top: 80px; width: 290px; z-index: 6; }
+.login_panel h1 { color: #555; font: 20px/75px "Microsoft Yahei", "微软雅黑", SimSun, sans-serif; height: 66px; margin-left: 30px; width: 227px; }
+#login { height: 245px; width: 260px; padding-left: 30px; position:relative; }
+#login li { height: 40px; padding: 7px 0; }
+#login li input { height: 20px; padding: 10px; border: 1px solid #CCC; width: 210px; }
+#login li input.error{ border:1px solid #F30}
+#login label { position: relative; display: block; height: 40px; }
+#login label span { position: absolute; left: 10px; top: 0px; line-height: 40px; color: #999; float: left; cursor: text; font-size: 14px }
+#login li select { border: 1px solid #CCC; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; color: #555555; height: 40px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; vertical-align: middle; width: 230px; }
+#login li input:hover, #login li select:hover { border-color: #66AFE9; }
+#login li input:focus, #login li select:focus { border-color: #66AFE9; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6); outline: 0 none; }
+#login li .login_btn{ height:42px; border:none; color:#FFF; font-size:18px; text-align:center; font-weight:bold; width:230px; background:url(../images/login_btn.png) no-repeat;}
+.cloud { position: absolute; bottom: 0; height: 41px; background: url(../images/cloud.png) no-repeat; width: 951px; left:50%; margin-left:-475px; z-index: 4 }
+.login_panel .link_reg { background-color: #F2F7FA; border-top: 1px solid #E6ECF0; bottom: 0; height: 40px; left: 0; line-height: 40px; position: absolute; width: 100%; }
+.login_panel .link_reg a { margin-left: 30px; color:#1E71A8 }
+#login .error_msg{ position:absolute; top:-15px; left:30px; height:20px; line-height:20px; color:#F30; padding-left:20px; background:url(../images/msg_error.png) no-repeat left center;}
+/**/
+.opr_way { clear: both; padding: 40px 0; }
+.opr_way li { float: left; height: 90px; background: url(../images/i_help.png) no-repeat left center; width: 280px; margin: 0 20px; }
+.opr_way li.i_detect { background: url(../images/i_search.png) no-repeat left center; }
+.opr_way li.i_uplog { background: url(../images/i_uplog.png) no-repeat left center; }
+.opr_way li a { display: block; padding-left: 90px; }
+.opr_way li a:hover{ text-decoration:none;}
+.opr_way li h2 { height: 30px; line-height: 30px; color: #666 }
+.opr_way li p { height: 60px; line-height: 20px; color: #999 }
+
+@media all and (min-height: 800px) {
+.opr_way { padding: 100px 0 100px 0; }
+}
+/*foot*/
+.foot { height: 70px; border-top: 1px solid #CCC; margin-top: 10px; background-color: #FFF; padding: 5px 0 10px 0; }
+.foot_cont { width: 1000px; margin: 0 auto; }
+.foot_cont .foot_nav { text-align: center; }
+.foot_cont .foot_nav a { display: inline-block; padding: 0 20px; height: 24px; line-height: 24px; }
+.foot_cont .copyright { text-align: center; padding-top: 5px; line-height: 24px; color: #999; }
