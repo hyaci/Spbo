@@ -18,7 +18,7 @@ public class HtmlControl {
 
     @RequestMapping("/")
     public String home(Map<String, Object> model) {
-        //登陆之后的页面跳转
+        //登陆之后的页面跳转()
         return "home";
     }
 
