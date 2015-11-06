@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+</head>
+<body th:fragment="body">
+<header class="navbar" id="header-navbar">
+  <div class="container">
+    <!--已将logo文件名称修正为logo1[ui/back/lib/custom/img/logo1]-->
+    <a href="index.html" id="logo" class="navbar-brand"> </a>
+    <div class="clearfix">
+      <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+      <span class="sr-only">菜单</span>
+      <span class="fa fa-bars"></span>
+      </button>
+      <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+        <ul class="nav navbar-nav pull-left">
+          <li>
+            <a class="btn" id="make-small-nav">
+            <i class="fa fa-bars"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-no-collapse pull-right" id="header-nav">
+        <ul class="nav navbar-nav pull-right">
+          <!--/*-->
+          <li>
+            <a class="btn" >
+            <i class="fa fa-envelope-o"></i>
+            <span class="count">16</span>
+            </a>
+          </li>
+          <!--*/-->
+          <li class="dropdown profile-dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="hidden-xs" th:inline="text">[[${#httpServletRequest.remoteUser}]]</span>
+            <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <!--/*-->
+              <li><a href="user-profile.html"><i class="fa fa-user"></i>用户信息</a>
+              </li>
+              <li><a href="#"><i class="fa fa-cog"></i>密码修改</a>
+              </li>
+              <li><a href="#"><i class="fa fa-envelope-o"></i>待办事项</a>
+              </li>
+              <!--*/-->
+              <li>
+                <form method="post" th:action="@{/logout}" style="display: none">
+                  <input type="submit" id="logout_btn" />
+                </form>
+                <a href="#" id="logout_btn_label"><i class="fa fa-power-off"></i>退出登录</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<script th:src="@{/ui/back/lib/custom/js/jquery.js}"></script>
+<script th:inline="javascript">
+  jQuery(function(){
+    jQuery("#logout_btn_label").on("click",function(){
+      jQuery("#logout_btn").trigger("click");
+    });
+  })
+</script>
+</body>
+</html>

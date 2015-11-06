@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title th:text="${title}">Title</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
-          href="../../css/bootstrap.min.css" />
+<html xmlns:th="http://www.thymeleaf.org"
+	lang="zh_CN">
+<head th:replace="backFragments/head :: head">
+<meta charset="UTF-8" />
 </head>
-<body>
-<div class="container">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <a class="brand" href="http://www.thymeleaf.org"> Thymeleaf -
-                Plain </a>
-            <ul class="nav">
-                <li><a th:href="@{/}" href="home.html"> Home </a></li>
-            </ul>
-        </div>
-    </div>
-    <h1 th:text="${title}">Title</h1>
-    <div th:text="${message}">Fake content</div>
-    <div id="created" th:text="${#dates.format(date)}">July 11,
-        2012 2:17:16 PM CDT</div>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>
-</div>
+<body class="fixed-header fixed-leftmenu">
+	<header th:include="backFragments/header-navbar :: body" th:remove="tag"></header>
+	<div id="page-wrapper" class="container">
+		<div class="row">
+			<div th:include="backFragments/nav-col :: body" th:remove="tag"></div>
+			<div id="content-wrapper">
+				<nav class="fixed-top" role="navigation">
+				</nav>
+				  <div class="container-fluid" style="margin:0; padding:0;">
+  					<div class="index-bg" style="margin:0; background:url(ui/back/lib/custom/img/bg.jpg) #fefefe center; box-shadow:none">
+  						<!-- <img th:src="@{/resources/lib/custom/img/bg.jpg}"/> -->
+    				</div>
+  				  </div>
+			</div>
+			
+		</div>
+	</div>
+	<script th:include="backFragments/script :: body" th:remove="tag"></script>
+	<script>
+	$(document).ready(function(){
+		$(".index-bg").height($(window).height()-50);		
+	});
+		
+	</script>
 </body>
 </html>

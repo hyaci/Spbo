@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+</head>
+<body th:fragment="body">
+    <div id="nav-col">
+      <section id="col-left" class="col-left-nano">
+        <div id="col-left-inner" class="col-left-nano-content">
+          <div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">
+            <ul class="nav nav-pills nav-stacked">
+             <!-- th:if="${session.isShowBaseData}"-->
+              <li id="menu_baseData">
+                <a href="#" class="dropdown-toggle"><i class="fa fa-cogs"></i>
+                <span>A级菜单</span><i class="fa fa-chevron-circle-right drop-icon"></i>
+                </a>
+                <ul class="submenu">
+                  <!--th:if="${session.isShowBaseData_user}"-->
+                  <li >
+                    <a th:href="@{/user.html}" id="menu_baseData_user">A级子菜单1</a>
+                  </li>
+                  <li>
+                    <a th:href="@{/bank.html}" id="menu_baseData_bank">A级子菜单2</a>
+                  </li>
+                  <li>
+                    <a th:href="@{/bankCode.html}" id="menu_baseData_bankCode">A级子菜单3</a>
+                  </li>
+                  <li>
+                    <a th:href="@{/buSystem.html}" id="menu_baseData_busys">A级子菜单4</a>
+                  </li>
+                  <li>
+                    <a th:href="@{/customer.html}" id="menu_baseData_customer">A级子菜单5</a>
+                  </li>
+                  <li>
+                    <a th:href="@{/merchant.html}" id="menu_baseData_merchant">A级子菜单6</a>
+                  </li> 
+                </ul>
+              </li>
+             <!-- th:if="${session.isShowFinance}"-->
+              <li id="menu_finance">
+                <a href="#" class="dropdown-toggle"><i class="fa fa-rmb"></i>
+                <span>B级菜单</span><i class="fa fa-chevron-circle-right drop-icon"></i>
+                </a>
+                <ul class="submenu">
+                  <!-- <li>
+                    <a th:href="用户管理.html">余额管理</a>
+                  </li> -->
+                  <li>
+                    <a th:href="@{/order.html}" id="menu_finance_order">B级菜单1</a>
+                  </li>
+                  <li>
+                    <a th:href="@{/refundOrder.html}" id="menu_finance_refund">B级菜单2</a>
+                  </li>
+                  <li>
+                    <a th:href="@{/recBank.html}" id="menu_finance_rec">B级菜单3</a>
+                  </li>
+                  <li>
+                    <a th:href="@{/hasRec.html}" id="menu_finance_hasrec">B级菜单4</a>
+                  </li>
+				 <li>
+                    <a th:href="@{/chargeCustomers.html}" id="menu_finance_charge">B级菜单5</a>
+                  </li>
+                   <li>
+                    <a th:href="@{/managementBalance.html}" id="menu_finance_balance">B级菜单6</a>
+                  </li>
+                </ul>
+              </li>
+              
+              <li id="menu_pubService">
+                <a th:href="@{/pubService.html}"><i class="fa fa-th-list"></i>
+                <span>.....</span>
+                </a>
+              </li>
+              <!--th:if="${session.isShowLog}"-->
+              <li  id="menu_log">
+                <a href="#" class="dropdown-toggle"><i class="fa fa-th-list"></i>
+                <span>...</span><i class="fa fa-chevron-circle-right drop-icon"></i>
+                </a>
+                <ul class="submenu">
+                  <li>
+                    <a th:href="@{/logUsual.html}" id="menu_log_usual">...</a>
+                    <a th:href="@{/businessRequestLog.html}" id="menu_log_buReq">...</a>
+                    <a th:href="@{/bankRequestLog.html}" id="menu_log_bankReq">...</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- <li>
+                <a href="日志.html"><i class="fa fa-th-list"></i>
+                <span>日志</span>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script th:src="@{/ui/back/lib/custom/js/jquery.js}"></script>
+    <script th:inline="javascript">
+    	jQuery(function(){
+    		var targetMenu=/*[[${session.menu}]]*/;
+    		if(targetMenu==undefined || targetMenu==null ||targetMenu==""){
+    			
+    		}else{
+    			var targets=targetMenu.split("_");
+        		
+        		if(targets.length==2){
+        			jQuery("#menu_"+targets[0]).attr("class","active");
+        			jQuery("#menu_"+targetMenu).attr("class","active");
+        		}else if(targets.length==1){
+        			jQuery("#menu_"+targets[0]).attr("class","active");
+        		}else{
+        			
+        		}
+    		}
+    	})
+    </script>
+</body>
+</html>
