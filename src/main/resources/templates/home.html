@@ -16,12 +16,13 @@
             </ul>
         </div>
     </div>
-    <h1 th:text="${title}">Title</h1>
-    <div th:text="${message}">Fake content</div>
-    <div id="created" th:text="${#dates.format(date)}">July 11,
-        2012 2:17:16 PM CDT</div>
+    <h1>you are home~</h1>
+    <br/>
+    <div> &nbsp;&nbsp;hi~ ,it is worked!</div>
+    <div id="created" >&nbsp;&nbsp;so ,it is a patty time ,let us go!</div>
+    <br/>
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
+        <input type="submit" value="Sign Out" class="btn btn-primary"/>
     </form>
 </div>
 </body>
